@@ -26,76 +26,75 @@ def get_audio():
 
 # this while loop makes it so the program is constantly listening
 # here it searches for specific key words like the lane and type of spell
-running = True
-while running:
+while True:
 	text = get_audio()
 
 	if "top" in text:
-		if "flash" in text or "Flash" in text:
+		if "flash" in text or "Flash" in text or "/" in text:
 			pyperclip.copy("champnameTOP flash time")
-			speak("done")
+			speak()
 		if "heal" in text or "Heal" in text:
 			pyperclip.copy("champnameTOP heal time")
-			speak("done")
+			speak()
 		if "teleport" in text or "Teleport" in text:
 			pyperclip.copy("champnameTOP teleport time")
-			speak("done")
+			speak()
 		if "barrier" in text or "Barrier" in text:
 			pyperclip.copy("champnameTOP barrier time")
-			speak("done")
+			speak()
 
 	if "mid" in text or "middle" in text:
-		if "flash" in text or "Flash" in text:
+		if "flash" in text or "Flash" in text or "/" in text:
 			pyperclip.copy("champnamemid flash time")
-			speak("done")
+			speak()
 		if "heal" in text or "Heal" in text:
 			pyperclip.copy("champnamemid heal time")
-			speak("done")
+			speak()
 		if "teleport" in text or "Teleport" in text:
 			pyperclip.copy("champnamemid teleport time")
-			speak("done")
+			speak()
 		if "barrier" in text or "Barrier" in text:
 			pyperclip.copy("champnamemid barrier time")
-			speak("done")
+			speak()
 
 	if "jungle" in text:
-		if "flash" in text or "Flash" in text:
+		if "flash" in text or "Flash" in text or "/" in text:
 			pyperclip.copy("champnamejungle flash time")
-			speak("done")
+			speak()
 		if "heal" in text or "Heal" in text:
 			pyperclip.copy("champnamejungle heal time")
-			speak("done")
+			speak()
 		if "teleport" in text or "Teleport" in text:
 			pyperclip.copy("champnamejungle teleport time")
-			speak("done")
+			speak()
 		if "barrier" in text or "Barrier" in text:
 			pyperclip.copy("champnamejungle barrier time")
-			speak("done")
+			speak()
 
 	if "80" in text or "carry" in text:
-		if "flash" in text or "Flash" in text:
+		if "flash" in text or "Flash" in text or "/" in text:
 			pyperclip.copy("champnameadc flash time")
-			speak("done")
+			speak()
 		if "heal" in text or "Heal" in text:
 			pyperclip.copy("champnameadc heal time")
-			speak("done")
+			speak()
 		if "teleport" in text or "Teleport" in text:
 			pyperclip.copy("champnameadc teleport time")
-			speak("done")
+			speak()
 		if "barrier" in text or "Barrier" in text:
 			pyperclip.copy("champnameadc barrier time")
-			speak("done")
+			speak()
 
 	if "support" in text:
-		if "flash" in text or "Flash" in text:
+		if "flash" in text or "Flash" in text or "/" in text:
 			pyperclip.copy("champnamesupport flash time")
-			speak("done")
+			speak()
 		if "heal" in text or "Heal" in text:
 			pyperclip.copy("champnamesupport heal time")
-			speak("done")
+			speak()
 		if "teleport" in text or "Teleport" in text:
 			pyperclip.copy("champnamesupport teleport time")
-			speak("done")
+			speak()
 		if "barrier" in text or "Barrier" in text:
 			pyperclip.copy("champnamesupport barrier time")
-			speak("done")
+			speak()
