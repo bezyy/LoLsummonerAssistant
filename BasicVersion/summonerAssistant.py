@@ -2,13 +2,15 @@ import pynput
 import pyperclip
 import os
 import time
+import bs4
 from pynput import keyboard
+from urllib.request import urlopen as uReq
 
 #constantly stores the input of the last 4 keys you pressed.
 #everytime to release a key it checks to see if your last 4 keys spell out a lane assigment and summoner spell
 keys = ["a", "b", "c", "d"]
 count = 0
-while int(mode) == 1:
+while True:
 	def on_press(key):
 		global keys, count
 		if count < 4:
