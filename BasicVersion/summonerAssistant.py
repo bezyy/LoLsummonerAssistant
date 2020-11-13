@@ -2,9 +2,31 @@ import pynput
 import pyperclip
 import os
 import time
-import bs4
+import selenium
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from pynput import keyboard
-from urllib.request import urlopen as uReq
+
+#get summoner name
+summonername = input("please enter your summoner name: ")
+my_url = 'https://na.op.gg/summoner/userName=' + summonername
+
+#opens chrome window controlled by bot
+PATH = os.getcwd() + "/chromedriver"
+driver = webdriver.Chrome(PATH)
+
+spelltime = [2]
+def get_info(lane):
+	driver.get(my_url)
+	link = driver.find_element_by_link_text("Live Game")
+	link.click()
+	time.sleep(1)
+	gametime = driver.find_element_by_class_name("Time")
+	spelltime = gametime.text.split(":")
+	spelltime[0] = str(int(spelltime[0]) + 5)
+	pyperclip.copy(lane + " flash " + spelltime[0] + ":" + spelltime[1])
 
 #constantly stores the input of the last 4 keys you pressed.
 #everytime to release a key it checks to see if your last 4 keys spell out a lane assigment and summoner spell
@@ -31,16 +53,16 @@ while True:
 
 	if "'t'" in keys and "'o'" in keys and "'p'" in keys:
 		if "'f'" in keys:
-			pyperclip.copy("champnameTOP flash time")
+			get_info("top")
 	if "'j'" in keys and "'u'" in keys and "'n'" in keys:
 		if "'f'" in keys:
-			pyperclip.copy("champnameJungle flash time")
+			get_info("jungle")
 	if "'m'" in keys and "'i'" in keys and "'d'" in keys:
 		if "'f'" in keys:
-			pyperclip.copy("champnameMID flash time")
+			get_info("mid")
 	if "'a'" in keys and "'d'" in keys and "'c'" in keys:
 		if "'f'" in keys:
-			pyperclip.copy("champnameADC flash time")
+			get_info("adc")
 	if "'s'" in keys and "'u'" in keys and "'p'" in keys:
 		if "'f'" in keys:
-			pyperclip.copy("champnameSUP flash time")
+			get_info("support")
